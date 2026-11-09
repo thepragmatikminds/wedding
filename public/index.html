@@ -11,9 +11,11 @@
 <!-- IMPORTANT: replace YOUR-DOMAIN with your live address so WhatsApp/Facebook show the preview image -->
 <meta property="og:image" content="https://wedding-c6k.pages.dev/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230a0a0a'/%3E%3Ctext x='19' y='42' font-family='Georgia,serif' font-size='26' font-style='italic' fill='%23c59d2e' text-anchor='middle'%3EW%3C/text%3E%3Ccircle cx='32' cy='33' r='2' fill='%23c59d2e'/%3E%3Ctext x='46' y='42' font-family='Georgia,serif' font-size='26' font-style='italic' fill='%23c59d2e' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<noscript><style>#env{display:none}body.closed{overflow:auto}.ph{opacity:1;animation:none}</style></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0a0a0a;--paper:#fff;--gold:#c59d2e;--gold-deep:#8a6d14;--mute:#555;--line:#e4e0d6;
 --serif:"Playfair Display","Didot","Bodoni 72",Georgia,serif;--sans:"Jost","Helvetica Neue",Arial,sans-serif}
@@ -30,9 +32,6 @@ h1,h2{font-family:var(--serif);font-weight:400;line-height:1.05}
 .top em{font-size:.8em;margin:0 .15em}
 .tri{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .tri img{display:block;width:100%;height:auto;aspect-ratio:370/603;object-fit:cover;filter:grayscale(1)}
-.tri img{opacity:0;animation:in 1.1s ease forwards}
-.tri img:nth-child(2){animation-delay:.25s}.tri img:nth-child(3){animation-delay:.5s}
-@keyframes in{to{opacity:1}}
 .names{text-align:center;padding:36px 0 8px}
 .names h1{font-size:clamp(2.4rem,9vw,5.4rem);font-weight:600;letter-spacing:-.01em}
 .names p{font-weight:500;letter-spacing:.28em;text-transform:uppercase;font-size:clamp(.78rem,2.6vw,1.05rem);margin-top:10px}
@@ -116,9 +115,87 @@ dialog[open]{display:flex;align-items:center;justify-content:center}
 dialog img{max-width:92vw;max-height:88vh;object-fit:contain}
 dialog button{position:absolute;background:none;border:0;color:#fff;font-size:2.4rem;line-height:1;padding:14px;cursor:pointer}
 #lx{top:6px;right:10px}#lp{left:4px;top:50%}#ln{right:4px;top:50%}
+
+/* ===== v2 polish ===== */
+:root{--script:"Pinyon Script","Snell Roundhand","Apple Chancery",cursive}
+.foil,.count b{background:linear-gradient(110deg,#7a5f10 0%,#c59d2e 22%,#f0d77f 38%,#c59d2e 55%,#7a5f10 78%,#c59d2e 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:var(--gold-deep);-webkit-text-fill-color:transparent;animation:shine 7s linear infinite}
+@keyframes shine{to{background-position:-250% 0}}
+.names p.script{font:400 clamp(2.2rem,8vw,3.6rem)/1.1 var(--script);letter-spacing:0;text-transform:none;margin-top:4px;color:var(--gold-deep)}
+.msg strong{font-family:var(--script);font-weight:400;font-size:1.7rem;line-height:1.1}
+h2::after{content:"────  ◆  ────";display:block;color:var(--gold);font:400 .7rem var(--sans);letter-spacing:.2em;margin-top:14px}
+#details .wrap{position:relative}
+#details .wrap::before{content:"";position:absolute;inset:-24px 6px;border:1px solid var(--gold);outline:1px solid var(--gold);outline-offset:-7px;pointer-events:none}
+/* hero entrance */
+.ph{overflow:hidden;opacity:0;animation:fx 1.2s cubic-bezier(.2,.7,.3,1) forwards}
+.ph:nth-child(1){--x:-60px;--y:0}.ph:nth-child(2){--x:0;--y:60px;animation-delay:.25s}.ph:nth-child(3){--x:60px;--y:0;animation-delay:.5s}
+@keyframes fx{from{opacity:0;transform:translate(var(--x),var(--y))}to{opacity:1;transform:none}}
+body.closed .ph{animation-play-state:paused}
+.ph img{transform-origin:50% 100%;will-change:transform}
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+/* banner */
+.ban{position:relative;margin:56px auto 0;overflow:hidden;aspect-ratio:4/5;max-height:88vh}
+.ban img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;display:block}
+.ban::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(0,0,0,.7))}
+.ban p{position:absolute;z-index:1;left:0;right:0;bottom:7%;text-align:center;color:#fff;font:400 clamp(3rem,11vw,6rem)/1 var(--script);text-shadow:0 2px 18px rgba(0,0,0,.45)}
+@media(min-width:720px){.ban{aspect-ratio:16/9}}
+/* timeline */
+.tl{max-width:560px;margin:0 auto;border-left:1px solid var(--gold);padding-left:26px}
+.tl>div{position:relative;padding-bottom:28px}
+.tl>div::before{content:"";position:absolute;left:-32px;top:7px;width:11px;height:11px;background:var(--gold);transform:rotate(45deg)}
+.tl small{display:block;color:var(--gold-deep);letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;font-weight:500}
+.tl b{font:600 1.2rem var(--serif)}
+.tl p{color:var(--mute)}
+/* gallery colour reveal */
+.gal img{filter:grayscale(1);transition:transform .5s,filter .7s}
+.gal button:hover img,.gal button:focus-visible img,.gal button.c img{filter:none}
+/* thanks, confetti, music */
+.thanks{font:400 2rem/1.2 var(--script);color:var(--gold-deep);text-align:center;margin-top:6px}
+.thanks[hidden]{display:none}
+.cf{position:fixed;width:8px;height:12px;pointer-events:none;z-index:200;border:1px solid #c59d2e}
+#mus{position:fixed;right:16px;bottom:16px;z-index:50;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--gold);background:var(--ink);color:var(--gold);font-size:1.2rem;cursor:pointer}
+#mus[hidden]{display:none}#mus.on{box-shadow:0 0 0 5px rgba(197,157,46,.3)}
+.mono{font:400 2.6rem/1 var(--script);color:var(--gold-deep);margin-bottom:6px}
+/* envelope */
+body.closed{overflow:hidden}
+#env{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#fffdf6,#f3ead3 75%);transition:opacity .8s ease,visibility .8s}
+#env.gone{opacity:0;visibility:hidden}
+.envlang{position:absolute;top:14px;right:14px;padding:0}
+.env-btn{background:none;border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:30px;font:inherit;color:var(--ink);padding:20px}
+.env-t1{font:400 clamp(2.6rem,10vw,4rem)/1 var(--script);color:var(--gold-deep)}
+.env-t2{font:500 .8rem var(--sans);letter-spacing:.3em;text-transform:uppercase}
+.envelope{position:relative;width:min(80vw,340px);aspect-ratio:3/2;perspective:1000px;filter:drop-shadow(0 18px 22px rgba(90,65,10,.28))}
+#env:not(.open) .envelope{animation:flo 3.6s ease-in-out infinite}
+@keyframes flo{50%{transform:translateY(-7px)}}
+.envelope>span{position:absolute;display:block}
+.eb{inset:0;background:linear-gradient(#f4ebd0,#e6d8aa);border:1px solid var(--gold)}
+.letter{left:6%;width:88%;top:6%;height:84%;background:#fff;border:1px solid #e6dcc0;z-index:1;transition:transform .9s .3s cubic-bezier(.3,.7,.3,1);display:flex!important;align-items:center;justify-content:center;font:400 1.9rem var(--script);color:var(--gold-deep)}
+.pocket{inset:0;background:linear-gradient(#ead9a8,#dcc88c);clip-path:polygon(0 0,50% 54%,100% 0,100% 100%,0 100%);z-index:2}
+.flap{left:0;top:0;width:100%;height:55%;background:linear-gradient(#e9dba9,#d9c585);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;transition:transform .8s ease,z-index 0s .4s;z-index:3}
+.seal{left:50%;top:54%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2b2b2b,#000);border:2px solid var(--gold);color:var(--gold);font:600 1.05rem var(--serif);display:flex!important;align-items:center;justify-content:center;z-index:4;transition:opacity .3s,transform .3s}
+.seal i{font-weight:400;font-size:.8em;margin:0 1px}
+.open .flap{transform:rotateX(180deg);z-index:0}
+.env-t1,.env-t2{transition:opacity .4s}
+.open .env-t1,.open .env-t2{opacity:0}
+.open .letter{transform:translateY(-52%)}
+.open .seal{opacity:0;transform:scale(.5)}
+@media(prefers-reduced-motion:reduce){.flap,.letter,.seal,#env{transition:none}.foil,.count b,#env:not(.open) .envelope{animation:none}.ph{opacity:1;animation:none}.rv{opacity:1;transform:none}}
 </style>
 </head>
-<body>
+<body class="closed">
+<div id="env" role="dialog" aria-label="Wedding invitation">
+  <div class="lang envlang" role="group" aria-label="Language">
+    <button type="button" data-l="en" aria-pressed="true">English</button>
+    <button type="button" data-l="ny" aria-pressed="false">Chichewa</button>
+  </div>
+  <button id="open" class="env-btn" type="button" aria-label="Open invitation">
+    <span class="env-t1" data-i="envA">You are invited</span>
+    <span class="envelope"><span class="eb"></span><span class="letter">Wyson &amp; Brendah</span><span class="pocket"></span><span class="flap"></span><span class="seal">W<i>&amp;</i>B</span></span>
+    <span class="env-t2" data-i="envB">Tap to open</span>
+  </button>
+</div>
+<button id="mus" type="button" aria-label="Music" hidden>♪</button>
 
 <div class="wrap">
   <div class="lang" role="group" aria-label="Language">
@@ -127,14 +204,14 @@ dialog button{position:absolute;background:none;border:0;color:#fff;font-size:2.
   </div>
   <div class="top" data-i="save">SAVE <em>the</em> DATE</div>
   <div class="tri" role="img" aria-label="Wyson and Brendah, 19 12 26">
-    <img src="/img/p1.jpg" alt="" width="370" height="603">
-    <img src="/img/p2.jpg" alt="" width="370" height="603">
-    <img src="/img/p3.jpg" alt="" width="370" height="603">
+    <div class="ph"><img src="/img/p1.jpg" alt="" width="370" height="603"></div>
+    <div class="ph"><img src="/img/p2.jpg" alt="" width="370" height="603"></div>
+    <div class="ph"><img src="/img/p3.jpg" alt="" width="370" height="603"></div>
   </div>
 
   <header class="names">
-    <h1>Wyson &amp; Brendah</h1>
-    <p data-i="married">are getting married</p>
+    <h1 class="foil">Wyson &amp; Brendah</h1>
+    <p class="script" data-i="married">are getting married</p>
     <p class="when" data-i="when">Saturday 19th December 2026 · Blantyre, Malawi</p>
     <div class="cta">
       <a class="btn" href="#rsvp">RSVP</a>
@@ -151,6 +228,10 @@ dialog button{position:absolute;background:none;border:0;color:#fff;font-size:2.
   </div>
 </div>
 
+<div class="ban"><img src="/img/g3-lg.jpg" alt="Brendah showing her engagement ring" loading="lazy"><p data-i="banner">We said yes.</p></div>
+
+<section id="story" hidden><div class="wrap"><h2 data-i="story">Our story</h2><div class="tl" id="tl"></div></div></section>
+
 <section id="details">
   <div class="wrap">
     <h2 data-i="day">The day</h2>
@@ -161,7 +242,7 @@ dialog button{position:absolute;background:none;border:0;color:#fff;font-size:2.
       </div>
       <div class="col">
         <h3>Brendah Mawindo</h3>
-        <p>T/A Lundu, William Village,<br>Blantyre.</p>
+        <p>T/A Lundi, William Village,<br>Blantyre.</p>
       </div>
     </div>
     <hr class="rule">
@@ -174,7 +255,7 @@ dialog button{position:absolute;background:none;border:0;color:#fff;font-size:2.
         <h3 data-i="off">Officiation</h3>
         <p>Likhubula CCAP Blantyre<br><a href="https://www.google.com/maps/search/?api=1&query=Likhubula+CCAP+Blantyre" target="_blank" rel="noopener" data-i="maps">Open in Maps</a></p>
         <h3 style="margin-top:18px" data-i="rec">Reception</h3>
-        <p>Malawi Sun Blantyre<br><a href="https://www.google.com/maps/search/?api=1&query=Malawi+Sun+Hotel+Blantyre" target="_blank" rel="noopener" data-i="maps">Open in Maps</a></p>
+        <p><span data-i="rtime">6:30 PM</span><br>Malawi Sun Blantyre<br><a href="https://www.google.com/maps/search/?api=1&query=Malawi+Sun+Hotel+Blantyre" target="_blank" rel="noopener" data-i="maps">Open in Maps</a></p>
       </div>
     </div>
     <hr class="rule">
@@ -185,6 +266,8 @@ dialog button{position:absolute;background:none;border:0;color:#fff;font-size:2.
     </div>
   </div>
 </section>
+
+<section id="prog" hidden><div class="wrap"><h2 data-i="prog">Programme</h2><div class="tl" id="pl"></div></div></section>
 
 <section id="rsvp" style="padding-top:0">
   <div class="wrap">
@@ -233,13 +316,14 @@ dialog button{position:absolute;background:none;border:0;color:#fff;font-size:2.
       <div><label for="text" data-i="lmsg">Your message</label><textarea id="text" maxlength="600" required></textarea></div>
       <input class="hp" id="site" tabindex="-1" aria-hidden="true">
       <div class="row"><span id="status" role="status"></span><button class="btn" id="send" type="submit" data-i="post">Post message</button></div>
+      <p id="thanks" class="thanks" hidden data-i="thanks"></p>
     </form>
     <div class="msgs" id="msgs"><p class="empty" data-i="loading">Loading messages…</p></div>
     <button class="btn alt" id="more" hidden data-i="more">Show more</button>
   </div>
 </section>
 
-<footer>Wyson &amp; Brendah<small>19 · 12 · 26</small><small data-i="credit">Photography: Spotlight Photography</small></footer>
+<footer><div class="mono">W &amp; B</div>Wyson &amp; Brendah<small>19 · 12 · 26</small><small data-i="credit">Photography: Spotlight Photography</small></footer>
 
 <script>
 const T={
@@ -250,7 +334,7 @@ lead:'Share a blessing, a memory or a few kind words. Wyson and Brendah will rea
 loading:'Loading messages…',more:'Show more',empty:'No messages yet. Be the first to write one.',loadfail:'Messages could not be loaded. Refresh to try again.',
 posting:'Posting…',ok:'Thank you! Your message is posted.',e400:'Please enter your name and a message.',e429:'You have posted a few messages already. Please try again in a little while.',
 egen:'Could not post. Try again.',enet:'No connection. Check your network and try again.',now:'just now',min:'{n} min ago',hr:'{n} h ago',credit:'Photography: Spotlight Photography',
-rlead:'Kindly confirm your attendance by contacting:',call:'Call',title:'Wyson & Brendah are getting married · 19 December 2026'},
+rlead:'Kindly confirm your attendance by contacting:',rtime:'6:30 PM',envA:'You are invited',envB:'Tap to open',banner:'We said yes.',story:'Our story',prog:'Programme',thanks:'Your words mean the world to us.<br>With love, Wyson &amp; Brendah ♥',call:'Call',title:'Wyson & Brendah are getting married · 19 December 2026'},
 ny:{save:'SUNGANI TSIKULI',married:'akukwatirana',when:'Loweruka 19 Disembala 2026 · Blantyre, Malawi',leave:'Siyani uthenga',cal:'Onjezani pa kalendala',
 days:'masiku',hours:'maola',mins:'mphindi',secs:'masekondi',day:'Tsiku laukwati',date:'Loweruka 19 Disembala 2026',time:'Mwambo uyamba 8:30 m’mawa',off:'Mwambo wa ukwati',rec:'Phwando',maps:'Tsegulani pa mapu',
 colours:'Mitundu ya ukwati',colnames:'Yoyera, golide ndi yakuda',gal:'Zithunzi zathu',wall:'Mauthenga kwa okwatiranawa',
@@ -258,7 +342,17 @@ lead:'Lembani madalitso, kukumbukira kapena mawu abwino. Wyson ndi Brendah awere
 loading:'Mauthenga akubwera…',more:'Onani zina',empty:'Palibe uthenga. Khalani woyamba kulemba.',loadfail:'Mauthenga sanabwere. Yambitsaninso tsambali.',
 posting:'Ikutumizidwa…',ok:'Zikomo! Uthenga wanu watumizidwa.',e400:'Chonde lembani dzina lanu ndi uthenga.',e429:'Mwatumiza mauthenga angapo kale. Yesaninso pakapita nthawi.',
 egen:'Sizinatheke kutumiza. Yesaninso.',enet:'Palibe intaneti. Yang’anani ndipo yesaninso.',now:'tsopano',min:'mphindi {n} zapitazo',hr:'maola {n} apitawo',credit:'Zithunzi: Spotlight Photography',
-rlead:'Tsimikizirani kubwera kwanu polumikizana ndi:',call:'Imbirani foni',title:'Wyson & Brendah akukwatirana · 19 Disembala 2026'}};
+rlead:'Tsimikizirani kubwera kwanu polumikizana ndi:',rtime:'6:30 madzulo',envA:'Mwaitanidwa',envB:'Dinani kuti mutsegule',banner:'Tinati inde.',story:'Nkhani yathu',prog:'Ndondomeko ya tsikulo',thanks:'Mawu anu ndi ofunika kwambiri kwa ife.<br>Zikomo, Wyson ndi Brendah ♥',call:'Imbirani foni',title:'Wyson & Brendah akukwatirana · 19 Disembala 2026'}};
+// ===== OPTIONAL SECTIONS: leave empty to hide them =====
+// {when:'2021', title:{en:'We met', ny:'Tinakumana'}, text:{en:'...', ny:'...'}}
+const STORY=[];
+// {when:'8:30 AM', title:{en:'Officiation', ny:'Mwambo'}, text:{en:'Likhubula CCAP Blantyre'}}
+const PROGRAMME=[
+  {when:'8:30 AM',title:{en:'Officiation',ny:'Mwambo wa ukwati'},text:{en:'Likhubula CCAP Blantyre'}},
+  {when:'6:30 PM',title:{en:'Reception',ny:'Phwando'},text:{en:'Malawi Sun Blantyre'}}
+];
+// e.g. '/audio/song.mp3'  (put the file in public/audio/)
+const MUSIC='';
 const $=id=>document.getElementById(id);
 let lang='en';
 const t=k=>T[lang][k];
@@ -269,6 +363,7 @@ function setLang(l){
   document.querySelectorAll('[data-ts]').forEach(e=>e.textContent=ago(+e.dataset.ts));
   document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l));
   try{localStorage.setItem('lang',l)}catch(_){}
+  renderLists();
 }
 document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
 
@@ -285,9 +380,9 @@ tick();setInterval(tick,1000);
 
 $('ics').onclick=()=>{
   const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Wyson and Brendah//EN','BEGIN:VEVENT',
-  'UID:wyson-brendah-2026@wedding','DTSTAMP:20260101T000000Z','DTSTART:20261219T063000Z','DTEND:20261219T140000Z',
+  'UID:wyson-brendah-2026@wedding','DTSTAMP:20260101T000000Z','DTSTART:20261219T063000Z','DTEND:20261219T190000Z',
   'SUMMARY:Wyson & Brendah\'s Wedding','LOCATION:Likhubula CCAP Blantyre (reception: Malawi Sun Blantyre)',
-  'DESCRIPTION:Officiation 8:30 AM. Wedding colours: white\\, gold and black.','END:VEVENT','END:VCALENDAR'].join('\r\n');
+  'DESCRIPTION:Officiation 8:30 AM at Likhubula CCAP Blantyre. Reception 6:30 PM at Malawi Sun Blantyre. Wedding colours: white\\, gold and black.','END:VEVENT','END:VCALENDAR'].join('\r\n');
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
   a.download='wyson-brendah-wedding.ics';a.click();
 };
@@ -333,7 +428,7 @@ $('form').onsubmit=async e=>{
   try{
     const r=await fetch('/api/messages',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({name:$('name').value,message:$('text').value,site:$('site').value})});
-    if(r.ok){status('ok');$('text').value='';load(false)}
+    if(r.ok){status('ok');$('text').value='';$('thanks').hidden=false;confetti();load(false)}
     else status(r.status===400?'e400':r.status===429?'e429':'egen',true);
   }catch(_){status('enet',true)}
   $('send').disabled=false;
@@ -343,6 +438,58 @@ $('form').onsubmit=async e=>{
 let start='en';
 try{start=new URLSearchParams(location.search).get('lang')||localStorage.getItem('lang')||'en'}catch(_){}
 setLang(T[start]?start:'en');
+
+// optional timeline sections
+function L(o){return !o?'':typeof o==='string'?o:(o[lang]||o.en||'')}
+function fill(id,sec,arr){const box=$(id);$(sec).hidden=!arr.length;box.replaceChildren();
+  arr.forEach(it=>{const d=document.createElement('div'),w=document.createElement('small'),b=document.createElement('b'),p=document.createElement('p');
+    w.textContent=it.when||'';b.textContent=L(it.title);p.textContent=L(it.text);d.append(w,b,p);box.append(d)})}
+function renderLists(){fill('tl','story',STORY);fill('pl','prog',PROGRAMME)}
+renderLists();
+
+// confetti
+function confetti(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const c=['#c59d2e','#e3c15a','#0a0a0a','#ffffff'],r=$('send').getBoundingClientRect(),ox=r.left+r.width/2,oy=r.top+r.height/2;
+  for(let i=0;i<44;i++){
+    const e=document.createElement('i');e.className='cf';e.style.cssText=`left:${ox}px;top:${oy}px;background:${c[i%4]}`;document.body.append(e);
+    const a=Math.random()*Math.PI*2,v=90+Math.random()*190;
+    e.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:`translate(${Math.cos(a)*v}px,${Math.sin(a)*v+170}px) rotate(${Math.random()*720}deg)`,opacity:0}],
+      {duration:1400+Math.random()*900,easing:'cubic-bezier(.2,.7,.4,1)'}).onfinish=()=>e.remove();
+  }
+}
+
+// music (only if MUSIC is set)
+const aud=new Audio();let playing=false;
+function playMusic(){aud.src=MUSIC;aud.loop=true;aud.volume=.5;aud.play().then(()=>{playing=true;$('mus').classList.add('on')}).catch(()=>{})}
+if(MUSIC){$('mus').hidden=false;$('mus').onclick=()=>{if(playing){aud.pause();playing=false;$('mus').classList.remove('on')}else playMusic()}}
+
+// envelope intro (skipped on repeat visits this session, or when a #link is used)
+const env=$('env'),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let skip=false;try{skip=!!sessionStorage.getItem('opened')||!!location.hash}catch(_){}
+if(skip){env.remove();document.body.classList.remove('closed')}
+else $('open').onclick=()=>{
+  try{sessionStorage.setItem('opened','1')}catch(_){}
+  env.classList.add('open');
+  if(MUSIC)playMusic();
+  setTimeout(()=>{env.classList.add('gone');document.body.classList.remove('closed')},reduce?150:1250);
+  setTimeout(()=>env.remove(),reduce?600:2200);
+};
+
+// scroll reveal + hero zoom-out + gallery colour on touch
+if(!reduce){
+  document.querySelectorAll('section h2,.lead,#details .grid,.colours,.rsvp,.gal,#form,.tl,.count').forEach(e=>e.classList.add('rv'));
+  const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+  const ims=document.querySelectorAll('.ph img');let tk=false;
+  const zoom=()=>{const sc=1.08-Math.min(scrollY,500)/500*.08;ims.forEach(i=>i.style.transform=`scale(${sc})`)};
+  zoom();addEventListener('scroll',()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{zoom();tk=false})},{passive:true});
+}
+if(matchMedia('(hover:none)').matches){
+  const gio=new IntersectionObserver(es=>es.forEach(x=>x.target.classList.toggle('c',x.intersectionRatio>.6)),{threshold:[0,.6,1]});
+  document.querySelectorAll('#gal button').forEach(b=>gio.observe(b));
+}
+
 load(false);
 </script>
 </body>
