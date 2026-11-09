@@ -5,4 +5,4 @@ pages_build_output_dir = "public"
 [[d1_databases]]
 binding = "DB"
 database_name = "wedding-messages"
-database_id = "PASTE-YOUR-D1-DATABASE-ID-HERE"
+database_id = "1fbf7a26-6d45-4c55-902f-27c9bae18b6f"
